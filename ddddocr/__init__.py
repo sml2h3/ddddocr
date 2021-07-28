@@ -4,9 +4,21 @@ import warnings
 warnings.filterwarnings('ignore')
 import io
 import os
+import base64
 import onnxruntime
 from PIL import Image
 import numpy as np
+
+
+def base64_to_image(img_base64):
+    img_data = base64.b64decode(img_base64)
+    return Image.open(io.BytesIO(img_data))
+
+
+def get_img_base64(single_image_path):
+    with open(single_image_path, 'rb') as fp:
+        img_base64 = base64.b64encode(fp.read())
+        return img_base64.decode()
 
 
 class DdddOcr(object):
@@ -461,8 +473,11 @@ class DdddOcr(object):
                         "麋", "号", "槽", "姹", "陉", "瑯", "尉", "h", "绖", "宿", "戋", "粝", "砂", "该", "鞧", "翯", "釘", "铢", "窨",
                         "設", "⒆"]
 
-    def classification(self, img: bytes):
-        image = Image.open(io.BytesIO(img))
+    def classification(self, img_bytes: bytes = None, img_base64: str = None):
+        if img_bytes:
+            image = Image.open(io.BytesIO(img_bytes))
+        else:
+            image = base64_to_image(img_base64)
         image = image.resize((int(image.size[0] * (64 / image.size[1])), 64), Image.ANTIALIAS).convert('L')
         image = np.array(image).astype(np.float32)
         image = np.expand_dims(image, axis=0) / 255.
