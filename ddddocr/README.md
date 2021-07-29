@@ -12,17 +12,20 @@
 
 `pip install ddddocr`
 
-```
+```python
 import ddddocr
-
 ocr = ddddocr.DdddOcr()
-
 with open('test.png', 'rb') as f:
-
     img_bytes = f.read()
-
-res = ocr.classification(img_bytes)
-
+res = ocr.classification(img_bytes=img_bytes)
+print(res)
+```
+或者传入图片 base64 编码值（不包含图片头）
+```python
+import ddddocr
+ocr = ddddocr.DdddOcr()
+img_base64 = 'img_base64' # 示例
+res = ocr.classification(img_base64=img_base64)
 print(res)
 ```
 
@@ -39,4 +42,7 @@ print(res)
 
 |  参数名   | 默认值  | 说明  |
 |  ----  | ----  | ----  |
-| img  | 0 | bytes 图片的bytes格式 |
+| img_bytes  | None | bytes 图片的bytes格式 |
+| img_base64  | None | 图片的 base64 编码值（不包含图片头） |
+
+> 说明，当 `img_bytes` 和 `img_base64` 都存在时，优先使用 `img_bytes`
