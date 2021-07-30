@@ -6,7 +6,7 @@
 
 `python >= 3.8`
 
-`Windows/Linux/Macox..`
+`Windows/Linux..`
 
 ## 调用方法
 
