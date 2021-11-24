@@ -2,6 +2,11 @@
 
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
+## 交流群（找对象，苏州本地，dd群主）
+
+
+![qrcode.png](https://z3.ax1x.com/2021/11/24/oCjsmV.png)
+
 ## 环境要求
 
 `python >= 3.8`
