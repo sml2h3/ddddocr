@@ -5,7 +5,7 @@
 ## 交流群（找对象，在苏州，dd群主）
 
 
-![qrcode.png](https://z3.ax1x.com/2021/11/24/oCjsmV.png)
+![qrcode.png](https://z3.ax1x.com/2021/12/01/o8vX8K.png)
 
 ## 环境要求
 
