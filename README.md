@@ -5,7 +5,7 @@
 ## 交流群（找对象，在苏州，dd群主）
 
 
-![qrcode.png](http://cdn.wenanzhe.com/mmqrcode1639968409395.png)
+![qrcode.png](http://cdn.wenanzhe.com/mmqrcode1639968409395.png){:height="400px" width="200px"}
 
 ## 环境要求
 
