@@ -9,7 +9,7 @@
 
 ## 环境要求
 
-`python >= 3.8`
+`python <= 3.9`
 
 `Windows/Linux..`
 
@@ -51,3 +51,5 @@ print(res)
 | img_base64  | None | 图片的 base64 编码值（不包含图片头） |
 
 > 说明，当 `img_bytes` 和 `img_base64` 都存在时，优先使用 `img_bytes`
+
+> 如果使用GPU，需要自行安装cuda和cudnn，并在安装完ddddocr时执行 <br>`pip uninstall onnxrumtime`<br>然后手动执行<br>`pip install onnxruntime-gpu`
