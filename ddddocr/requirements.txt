@@ -1,4 +1,3 @@
-torchvision
 onnxruntime
 Pillow
 numpy
