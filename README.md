@@ -2,8 +2,10 @@
 
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
-## 交流群（找对象，在苏州，dd群主）
+# 2021/12/24重大更新，ddddocr现在支持通用目标检测啦
 
+
+## 交流群（找对象，在苏州，dd群主）
 
 ![qrcode.png](http://cdn.wenanzhe.com/Dingtalk_20211220105723.jpg!/scale/50)
 
@@ -11,11 +13,15 @@
 
 `python <= 3.9`
 
-`Windows/Linux..`
+`Windows/Linux/Macos..`
+
+暂时不支持Macbook M1(X)，M1(X)用户需要自己编译onnxruntime才可以使用
 
 ## 调用方法
 
 `pip install ddddocr`
+
+### 1、文字识别模式
 
 ```python
 import ddddocr
@@ -34,16 +40,40 @@ res = ocr.classification(img_base64=img_base64)
 print(res)
 ```
 
-### 参数说明
+### 2、目标检测模式
+```python
+import ddddocr
+det = ddddocr.DdddOcr(det=True)
 
-`DdddOcr 接受两个参数`
+with open('test.jpg', 'rb') as f:
+    img_bytes = f.read()
+
+res = det.detection(img_bytes)
+print(res)
+```
+
+### 3、参数说明
+
+`DdddOcr 接受三个参数`
 
 |  参数名   | 默认值  | 说明  |
 |  ----  | ----  | ----  |
+| det  | False | Bool 默认为识别文字模式，为True则开启目标检测模式 |
 | use_gpu  | False | Bool    是否使用gpu进行推理，如果该值为False则device_id不生效 |
 | device_id  | 0 | int cuda设备号，目前仅支持单张显卡 |
 
 `classification`
+
+必须det参数为False后才可使用
+
+|  参数名   | 默认值  | 说明  |
+|  ----  | ----  | ----  |
+| img_bytes  | None | bytes 图片的bytes格式 |
+| img_base64  | None | 图片的 base64 编码值（不包含图片头） |
+
+`detection`
+
+必须det参数为False后才可使用
 
 |  参数名   | 默认值  | 说明  |
 |  ----  | ----  | ----  |
