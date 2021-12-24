@@ -1,3 +1,4 @@
 onnxruntime
 Pillow
 numpy
+opencv-python

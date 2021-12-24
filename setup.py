@@ -14,7 +14,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="ddddocr",
-    version="1.2.0",
+    version="1.2.1",
     author="sml2h3",
     description="带带弟弟OCR",
     long_description=long_description,
@@ -26,7 +26,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=['numpy', 'onnxruntime', 'Pillow'],
+    install_requires=['numpy', 'onnxruntime', 'Pillow', 'opencv-python'],
     python_requires='<3.10',
     include_package_data=True,
     install_package_data=True,
