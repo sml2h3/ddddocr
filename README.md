@@ -5,9 +5,9 @@
 # 2021/12/24重大更新，ddddocr现在支持通用目标检测啦
 
 
-## 交流群（找对象，在苏州，dd群主）
+## 交流群（加我微信拉你进群）
 
-![qrcode.png](http://cdn.wenanzhe.com/Dingtalk_20211220105723.jpg!/scale/50)
+![qrcode.png](https://cdn.wenanzhe.com/img/mmqrcode1640418911274(1).png)
 
 ## 环境要求
 
