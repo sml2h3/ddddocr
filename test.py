@@ -1,7 +1,7 @@
 import ddddocr
 
 # 识别
-ocr = ddddocr.DdddOcr()
+ocr = ddddocr.DdddOcr(old=True)
 
 with open('test.jpg', 'rb') as f:
     img_bytes = f.read()
