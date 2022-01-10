@@ -137,7 +137,7 @@ cv2.imwrite("result.jpg", im)
 
 [github](https://github.com/sml2h3/ocr_api_server) 
 
-[gitee](https://github.com/sml2h3/ocr_api_server)
+[gitee](https://gitee.com/fkgeek/ocr_api_server)
 
 # 交流群 （加我好友拉你进群）
 
