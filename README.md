@@ -133,6 +133,12 @@ cv2.imwrite("result.jpg", im)
 
 以上命令将自动安装符合自己电脑环境的最新ddddocr
 
+## 拓展 一键部署ddddocr api，支持docker部署
+
+[github](https://github.com/sml2h3/ocr_api_server) 
+
+[gitee]([github](https://github.com/sml2h3/ocr_api_server) ) 
+
 # 交流群 （加我好友拉你进群）
 
  ![Test](https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50) 
