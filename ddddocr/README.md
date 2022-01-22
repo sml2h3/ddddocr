@@ -3,7 +3,61 @@
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
 # 今天ddddocr又更新啦！
-  当前版本为1.3.1
+  ## 当前版本为1.4.0
+
+# 1.4.0版本更新内容
+
+  本次更新新增了两种滑块识别算法，算法非深度神经网络实现，仅使用opencv和PIL完成。
+
+  ## 算法1
+  小滑块为单独的png图片，背景是透明图，如下图
+
+  ![Test](https://cdn.wenanzhe.com/img/b.png) 
+
+  然后背景为带小滑块坑位的，如下图 
+  
+  ![Test](https://cdn.wenanzhe.com/img/a.png) 
+
+  ```python
+    det = ddddocr.DdddOcr(det=False, ocr=False)
+    
+    with open('target.png', 'rb') as f:
+        target_bytes = f.read()
+    
+    with open('background.png', 'rb') as f:
+        background_bytes = f.read()
+    
+    res = det.slide_match(target_bytes, background_bytes)
+    
+    print(res)
+  ```
+  ## 算法2
+  一张图为带坑位的原图，如下图
+
+  ![Test](https://cdn.wenanzhe.com/img/bg.jpg) 
+
+  一张图为原图，如下图 
+  
+  ![Test](https://cdn.wenanzhe.com/img/fullpage.jpg) 
+
+  ```python
+    det = ddddocr.DdddOcr(det=False, ocr=False)
+
+    with open('bg.jpg', 'rb') as f:
+        target_bytes = f.read()
+    
+    with open('fullpage.jpg', 'rb') as f:
+        background_bytes = f.read()
+    
+    img = cv2.imread("bg.jpg")
+    
+    res = det.slide_comparison(target_bytes, background_bytes)
+
+    print(res)
+  ```
+
+
+# 1.3.1版本更新内容
 
   想必很多做验证码的新手，一定头疼碰到点选类型的图像，做样本费时费力，神经网络不会写，训练设备太昂贵，模型效果又不好。
 
@@ -132,6 +186,12 @@ cv2.imwrite("result.jpg", im)
 `pip install ddddocr`
 
 以上命令将自动安装符合自己电脑环境的最新ddddocr
+
+## 拓展 一键部署ddddocr api，支持docker部署
+
+[github](https://github.com/sml2h3/ocr_api_server) 
+
+[gitee](https://gitee.com/fkgeek/ocr_api_server)
 
 # 交流群 （加我好友拉你进群）
 
