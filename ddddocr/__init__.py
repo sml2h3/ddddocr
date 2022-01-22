@@ -6,7 +6,7 @@ import io
 import os
 import base64
 import onnxruntime
-from PIL import Image
+from PIL import Image, ImageChops
 import numpy as np
 import cv2
 
@@ -27,14 +27,16 @@ class TypeError(Exception):
 
 
 class DdddOcr(object):
-    def __init__(self, det: bool = False, old: bool = False, use_gpu: bool = False, device_id: int = 0, show_ad=True):
+    def __init__(self, ocr: bool = True, det: bool = False, old: bool = False, use_gpu: bool = False,
+                 device_id: int = 0, show_ad=True):
         if show_ad:
             print("欢迎使用ddddocr，本项目专注带动行业内卷，个人博客:wenanzhe.com")
             print("训练数据支持来源于:http://146.56.204.113:19199/preview")
+
         if det:
             self.__graph_path = os.path.join(os.path.dirname(__file__), 'common_det.onnx')
             self.__charset = []
-        else:
+        if ocr:
             if old:
                 self.__graph_path = os.path.join(os.path.dirname(__file__), 'common_old.onnx')
                 self.__charset = ["", "掀", "袜", "顧", "徕", "榱", "荪", "浡", "其", "炎", "玉", "恩", "劣", "徽", "廉", "桂", "拂",
@@ -1433,8 +1435,8 @@ class DdddOcr(object):
             self.__providers = [
                 'CPUExecutionProvider',
             ]
-        self.__ort_session = onnxruntime.InferenceSession(self.__graph_path, providers=self.__providers)
-
+        if ocr or det:
+            self.__ort_session = onnxruntime.InferenceSession(self.__graph_path, providers=self.__providers)
 
     def preproc(self, img, input_size, swap=(2, 0, 1)):
         if len(img.shape) == 3:
@@ -1606,3 +1608,69 @@ class DdddOcr(object):
             img_bytes = base64.b64decode(img_base64)
         result = self.get_bbox(img_bytes)
         return result
+
+    def get_target(self, img_bytes: bytes = None):
+        image = Image.open(io.BytesIO(img_bytes))
+        w, h = image.size
+        starttx = 0
+        startty = 0
+        end_x = 0
+        end_y = 0
+        for x in range(w):
+            for y in range(h):
+                p = image.getpixel((x, y))
+                if p[-1] == 0:
+                    if startty != 0 and end_y == 0:
+                        end_y = y
+
+                    if starttx != 0 and end_x == 0:
+                        end_x = x
+                else:
+                    if startty == 0:
+                        startty = y
+                        end_y = 0
+                    else:
+                        if y < startty:
+                            startty = y
+                            end_y = 0
+            if starttx == 0 and startty != 0:
+                starttx = x
+            if end_y != 0:
+                end_x = x
+        return image.crop([starttx, startty, end_x, end_y]), startty
+
+    def slide_match(self, target_bytes: bytes = None, background_bytes: bytes = None):
+        target, target_y = self.get_target(target_bytes)
+        target = cv2.cvtColor(np.asarray(target), cv2.COLOR_RGBA2GRAY)
+        background = cv2.imdecode(np.frombuffer(background_bytes, np.uint8), cv2.IMREAD_GRAYSCALE)
+        res = cv2.matchTemplate(background, target, cv2.TM_CCOEFF)
+        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+        w, h = target.shape[::-1]
+        bottom_right = (max_loc[0] + w, max_loc[1] + h)
+        return {"target_y": target_y,
+                "target": [int(max_loc[0]), int(max_loc[1]), int(bottom_right[0]), int(bottom_right[1])]}
+
+    def slide_comparison(self, target_bytes: bytes = None, background_bytes: bytes = None):
+        target = Image.open(io.BytesIO(target_bytes))
+        background = Image.open(io.BytesIO(background_bytes))
+        image = ImageChops.difference(background, target)
+        background.close()
+        target.close()
+        image = image.point(lambda x: 255 if x > 80 else 0)
+        start_y = 0
+        start_x = 0
+        for i in range(0, image.width):
+            count = 0
+            for j in range(0, image.height):
+                pixel = image.getpixel((i, j))
+                if pixel != (0, 0, 0):
+                    count += 1
+                if count >= 5 and start_y == 0:
+                    start_y = j - 5
+
+            if count >= 5:
+                start_x = i + 2
+                break
+        return {
+            "target": [start_x, start_y]
+        }
