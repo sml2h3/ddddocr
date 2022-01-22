@@ -5,6 +5,11 @@
 # 今天ddddocr又更新啦！
   ## 当前版本为1.4.0
 
+# 捐赠 （如果项目有帮助到您，可以选择捐赠一些费用用于ddddocr的后续版本维护，本项目长期维护）
+
+ ![Test](https://cdn.wenanzhe.com/img/zhifubao.jpg!/scale/35) 
+ ![Test](https://cdn.wenanzhe.com/img/weixin.jpg!/scale/35) 
+
 # 1.4.0版本更新内容
 
   本次更新新增了两种滑块识别算法，算法非深度神经网络实现，仅使用opencv和PIL完成。
