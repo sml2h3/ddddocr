@@ -198,6 +198,12 @@ cv2.imwrite("result.jpg", im)
 
 [gitee](https://gitee.com/fkgeek/ocr_api_server)
 
+## 爬虫框架推荐
+
+[feapder](https://github.com/Boris-code/feapder) 
+
+[crawlab](https://github.com/crawlab-team/crawlab)
+
 # 交流群 （加我好友拉你进群）
 
  ![Test](https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50) 
