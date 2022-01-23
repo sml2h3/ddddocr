@@ -32,8 +32,12 @@ class DdddOcr(object):
         if show_ad:
             print("欢迎使用ddddocr，本项目专注带动行业内卷，个人博客:wenanzhe.com")
             print("训练数据支持来源于:http://146.56.204.113:19199/preview")
+            print("爬虫框架feapder可快速一键接入，快速开启爬虫之旅：https://github.com/Boris-code/feapder")
+
 
         if det:
+            ocr = False
+            print("开启det后自动关闭ocr")
             self.__graph_path = os.path.join(os.path.dirname(__file__), 'common_det.onnx')
             self.__charset = []
         if ocr:
@@ -1639,9 +1643,14 @@ class DdddOcr(object):
                 end_x = x
         return image.crop([starttx, startty, end_x, end_y]), startty
 
-    def slide_match(self, target_bytes: bytes = None, background_bytes: bytes = None):
-        target, target_y = self.get_target(target_bytes)
-        target = cv2.cvtColor(np.asarray(target), cv2.COLOR_RGBA2GRAY)
+    def slide_match(self, target_bytes: bytes = None, simple_target=False, background_bytes: bytes = None):
+        if simple_target:
+            target, target_y = self.get_target(target_bytes)
+            target = cv2.cvtColor(np.asarray(target), cv2.COLOR_RGBA2GRAY)
+        else:
+            target = cv2.imdecode(np.frombuffer(target_bytes, np.uint8), cv2.IMREAD_GRAYSCALE)
+            target_y = 0
+
         background = cv2.imdecode(np.frombuffer(background_bytes, np.uint8), cv2.IMREAD_GRAYSCALE)
         res = cv2.matchTemplate(background, target, cv2.TM_CCOEFF)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
