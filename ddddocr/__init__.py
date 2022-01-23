@@ -1643,8 +1643,8 @@ class DdddOcr(object):
                 end_x = x
         return image.crop([starttx, startty, end_x, end_y]), startty
 
-    def slide_match(self, target_bytes: bytes = None, simple_target=False, background_bytes: bytes = None):
-        if simple_target:
+    def slide_match(self, target_bytes: bytes = None, background_bytes: bytes = None, simple_target: bool=False):
+        if not simple_target:
             target, target_y = self.get_target(target_bytes)
             target = cv2.cvtColor(np.asarray(target), cv2.COLOR_RGBA2GRAY)
         else:
