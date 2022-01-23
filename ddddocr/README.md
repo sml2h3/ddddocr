@@ -36,6 +36,20 @@
     
     print(res)
   ```
+  *提示：如果小图无过多背景部分，则可以添加simple_target参数， 通常为jpg或者bmp格式的图片*
+```python
+    slide = ddddocr.DdddOcr(det=False, ocr=False)
+    
+    with open('target.jpg', 'rb') as f:
+        target_bytes = f.read()
+    
+    with open('background.jpg', 'rb') as f:
+        background_bytes = f.read()
+    
+    res = slide.slide_match(target_bytes, background_bytes, simple_target=True)
+    
+    print(res)
+  ```
   ## 算法2
   一张图为带坑位的原图，如下图
 
@@ -46,7 +60,7 @@
   ![Test](https://cdn.wenanzhe.com/img/fullpage.jpg) 
 
   ```python
-    det = ddddocr.DdddOcr(det=False, ocr=False)
+    slide = ddddocr.DdddOcr(det=False, ocr=False)
 
     with open('bg.jpg', 'rb') as f:
         target_bytes = f.read()
@@ -56,10 +70,17 @@
     
     img = cv2.imread("bg.jpg")
     
-    res = det.slide_comparison(target_bytes, background_bytes)
+    res = slide.slide_comparison(target_bytes, background_bytes)
 
     print(res)
   ```
+
+  ## 更新内容2
+  添加全局ocr关闭参数，初始化时传入
+
+ `dddd = ddddocr.DdddOcr(ocr=False)`
+
+  则为关闭ocr功能，如果det = True，则会自动关闭ocr
 
 
 # 1.3.1版本更新内容
