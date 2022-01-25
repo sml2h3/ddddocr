@@ -1641,27 +1641,35 @@ class DdddOcr(object):
                 starttx = x
             if end_y != 0:
                 end_x = x
-        return image.crop([starttx, startty, end_x, end_y]), startty
+        return image.crop([starttx, startty, end_x, end_y]), starttx, startty
 
     def slide_match(self, target_bytes: bytes = None, background_bytes: bytes = None, simple_target: bool=False):
         if not simple_target:
-            target, target_y = self.get_target(target_bytes)
-            target = cv2.cvtColor(np.asarray(target), cv2.COLOR_RGBA2GRAY)
+            target, target_x, target_y = self.get_target(target_bytes)
+            target = cv2.cvtColor(np.asarray(target), cv2.IMREAD_ANYCOLOR)
         else:
-            target = cv2.imdecode(np.frombuffer(target_bytes, np.uint8), cv2.IMREAD_GRAYSCALE)
+            target = cv2.imdecode(np.frombuffer(target_bytes, np.uint8), cv2.IMREAD_ANYCOLOR)
             target_y = 0
+            target_x = 0
 
-        background = cv2.imdecode(np.frombuffer(background_bytes, np.uint8), cv2.IMREAD_GRAYSCALE)
-        res = cv2.matchTemplate(background, target, cv2.TM_CCOEFF)
+        background = cv2.imdecode(np.frombuffer(background_bytes, np.uint8), cv2.IMREAD_ANYCOLOR)
+
+        background = cv2.Canny(background, 100, 200)
+        target = cv2.Canny(target, 100, 200)
+
+        background = cv2.cvtColor(background, cv2.COLOR_GRAY2RGB)
+        target = cv2.cvtColor(target, cv2.COLOR_GRAY2RGB)
+
+        res = cv2.matchTemplate(background, target, cv2.TM_CCOEFF_NORMED)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-        w, h = target.shape[::-1]
+        h, w = target.shape[:2]
         bottom_right = (max_loc[0] + w, max_loc[1] + h)
         return {"target_y": target_y,
                 "target": [int(max_loc[0]), int(max_loc[1]), int(bottom_right[0]), int(bottom_right[1])]}
 
     def slide_comparison(self, target_bytes: bytes = None, background_bytes: bytes = None):
-        target = Image.open(io.BytesIO(target_bytes))
-        background = Image.open(io.BytesIO(background_bytes))
+        target = Image.open(io.BytesIO(target_bytes)).convert("RGB")
+        background = Image.open(io.BytesIO(background_bytes)).convert("RGB")
         image = ImageChops.difference(background, target)
         background.close()
         target.close()
