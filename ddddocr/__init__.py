@@ -1587,11 +1587,11 @@ class DdddOcr(object):
         if not isinstance(img, (bytes, str, pathlib.PurePath, Image.Image)):
             raise TypeError("未知图片类型")
         if isinstance(img, bytes):
-            image = Image.open(io.BytesIO(img_bytes))
+            image = Image.open(io.BytesIO(img))
         elif isinstance(img, Image.Image):
             image = img.copy()
         elif isinstance(img, str):
-            image = base64_to_image(img_base64)
+            image = base64_to_image(img)
         else:
             assert isinstance(img, pathlib.PurePath)
             image = Image.open(img)
