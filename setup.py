@@ -14,7 +14,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="ddddocr",
-    version="1.4.1",
+    version="1.4.3",
     author="sml2h3",
     description="带带弟弟OCR",
     long_description=long_description,
