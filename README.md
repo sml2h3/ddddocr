@@ -7,8 +7,11 @@
 
 本次升级的主要原因为，[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 的开源进行适配，使[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练出的模型可以直接无缝导入到ddddocr里面来使用
 
+## 使用ddddocr调用[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后的模型
+
 [dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后会在models目录里导出charsets.json和onnx模型
 
+如下所示，import_onnx_path为onnx所在地址，charsets_path为onnx所在地址
 ```python
 import ddddocr
 
