@@ -225,7 +225,8 @@ cv2.imwrite("result.jpg", im)
 
 `Windows/Linux/Macos..`
 
-暂时不支持Macbook M1(X)，M1(X)用户需要自己编译onnxruntime才可以使用
+M1X用户需要使用 （[传送门](https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-arm64.sh
+)）创建python环境后即可使用
 
 ## 安装命令
 
