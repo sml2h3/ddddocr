@@ -3,7 +3,27 @@
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
 # 今天ddddocr又更新啦！
-  ## 当前版本为1.4.0
+  ## 当前版本为1.4.3
+
+本次升级的主要原因为，[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 的开源进行适配，使[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练出的模型可以直接无缝导入到ddddocr里面来使用
+
+## 使用ddddocr调用[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后的模型
+
+[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后会在models目录里导出charsets.json和onnx模型
+
+如下所示，import_onnx_path为onnx所在地址，charsets_path为onnx所在地址
+```python
+import ddddocr
+
+ocr = ddddocr.DdddOcr(det=False, ocr=False, import_onnx_path="myproject_0.984375_139_13000_2022-02-26-15-34-13.onnx", charsets_path="charsets.json")
+
+with open('888e28774f815b01e871d474e5c84ff2.jpg', 'rb') as f:
+    image_bytes = f.read()
+
+res = ocr.classification(image_bytes)
+print(res)
+
+```
 
 # 捐赠 （如果项目有帮助到您，可以选择捐赠一些费用用于ddddocr的后续版本维护，本项目长期维护）
 
