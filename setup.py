@@ -27,7 +27,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     install_requires=['numpy', 'onnxruntime', 'Pillow', 'opencv-python'],
-    python_requires='<3.10',
+    python_requires='<3.14',
     include_package_data=True,
     install_package_data=True,
 )
