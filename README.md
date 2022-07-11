@@ -250,7 +250,8 @@ cv2.imwrite("result.jpg", im)
 [crawlab](https://github.com/crawlab-team/crawlab)
 
 # 交流群 （加我好友拉你进群）
-
+ 
+ ![四群链接](https://cdn.wenanzhe.com/img/1d5ec7445d745a4d6790df352e1abb5.png!/scale/50)
  ![Test](https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50) 
 
 
