@@ -1,4 +1,4 @@
 onnxruntime
 Pillow
 numpy
-opencv-python
+opencv-python-headless

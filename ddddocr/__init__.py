@@ -29,7 +29,7 @@ class TypeError(Exception):
 
 
 class DdddOcr(object):
-    def __init__(self, ocr: bool = True, det: bool = False, old: bool = False, use_gpu: bool = False,
+    def __init__(self, ocr: bool = True, det: bool = False, old: bool = False, beta: bool = False, use_gpu: bool = False,
                  device_id: int = 0, show_ad=True, import_onnx_path: str = "", charsets_path: str = ""):
         if show_ad:
             print("欢迎使用ddddocr，本项目专注带动行业内卷，个人博客:wenanzhe.com")
@@ -50,13 +50,13 @@ class DdddOcr(object):
             self.__resize = info['image']
             self.__channel = info['channel']
             self.use_import_onnx = True
+
         if det:
             ocr = False
-            print("开启det后自动关闭ocr")
             self.__graph_path = os.path.join(os.path.dirname(__file__), 'common_det.onnx')
             self.__charset = []
         if ocr:
-            if old:
+            if not beta:
                 self.__graph_path = os.path.join(os.path.dirname(__file__), 'common_old.onnx')
                 self.__charset = ["", "掀", "袜", "顧", "徕", "榱", "荪", "浡", "其", "炎", "玉", "恩", "劣", "徽", "廉", "桂", "拂",
                                   "鳊", "撤",
