@@ -1632,8 +1632,10 @@ class DdddOcr(object):
                 image = (image - 0.456) / 0.224
             else:
                 image = (image - np.array([0.485, 0.456, 0.406])) / np.array([0.229, 0.224, 0.225])
+                image = image[0]
+                image = image.transpose((2, 0, 1))
 
-        ort_inputs = {'input1': np.array([image])}
+        ort_inputs = {'input1': np.array([image]).astype(np.float32)}
         ort_outs = self.__ort_session.run(None, ort_inputs)
         result = []
 
