@@ -36,9 +36,9 @@ print(res)
 
 # 赞助合作商
 
-| 赞助合作商        | 推荐理由                                                                                             |
-|------------|--------------------------------------------------------------------------------------------------|
-| [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
+|                                                            | 赞助合作商 | 推荐理由                                                                                             |
+|------------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------|
+| ![YesCaptcha](https://cdn.wenanzhe.com/img/yescaptcha.png) | [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
 
 # 1.4.0版本更新内容
 
