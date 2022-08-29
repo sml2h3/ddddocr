@@ -2,12 +2,16 @@
 
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
-# 今天ddddocr又更新啦！
-  ## 当前版本为1.4.3
+
+
+
+# 当前版本为1.4.7
+
+## 1.4.3更新内容
 
 本次升级的主要原因为，[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 的开源进行适配，使[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练出的模型可以直接无缝导入到ddddocr里面来使用
 
-## 使用ddddocr调用[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后的模型
+### 支持使用ddddocr调用 [dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后的自定义模型
 
 [dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后会在models目录里导出charsets.json和onnx模型
 
@@ -27,8 +31,14 @@ print(res)
 
 # 捐赠 （如果项目有帮助到您，可以选择捐赠一些费用用于ddddocr的后续版本维护，本项目长期维护）
 
- ![Test](https://cdn.wenanzhe.com/img/zhifubao.jpg!/scale/35) 
- ![Test](https://cdn.wenanzhe.com/img/weixin.jpg!/scale/35) 
+ ![Test](https://cdn.wenanzhe.com/img/zhifubao.jpg!/scale/30) 
+ ![Test](https://cdn.wenanzhe.com/img/weixin.jpg!/scale/30)
+
+# 赞助合作商
+
+| 赞助合作商        | 推荐理由                                                                                             |
+|------------|--------------------------------------------------------------------------------------------------|
+| [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
 
 # 1.4.0版本更新内容
 
@@ -225,8 +235,7 @@ cv2.imwrite("result.jpg", im)
 
 `Windows/Linux/Macos..`
 
-M1X用户需要使用 （[传送门](https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-arm64.sh
-)）创建python环境后即可使用
+暂时不支持Macbook M1(X)，M1(X)用户需要自己编译onnxruntime才可以使用
 
 ## 安装命令
 
@@ -247,7 +256,8 @@ M1X用户需要使用 （[传送门](https://github.com/conda-forge/miniforge/re
 [crawlab](https://github.com/crawlab-team/crawlab)
 
 # 交流群 （加我好友拉你进群）
-
+ 
+ ![四群链接](https://cdn.wenanzhe.com/img/1d5ec7445d745a4d6790df352e1abb5.png!/scale/50)
  ![Test](https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50) 
 
 

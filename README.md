@@ -2,16 +2,16 @@
 
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
-# 2022/05/27 关注我的直播间
 
-[B站直播间-点击关注我哦~在线分享答疑](https://space.bilibili.com/313042688)
 
-# 今天ddddocr又更新啦！
-  ## 当前版本为1.4.3
+
+# 当前版本为1.4.7
+
+## 1.4.3更新内容
 
 本次升级的主要原因为，[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 的开源进行适配，使[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练出的模型可以直接无缝导入到ddddocr里面来使用
 
-## 使用ddddocr调用[dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后的模型
+### 支持使用ddddocr调用 [dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后的自定义模型
 
 [dddd_trainer](https://github.com/sml2h3/dddd_trainer) 训练后会在models目录里导出charsets.json和onnx模型
 
@@ -31,8 +31,14 @@ print(res)
 
 # 捐赠 （如果项目有帮助到您，可以选择捐赠一些费用用于ddddocr的后续版本维护，本项目长期维护）
 
- ![Test](https://cdn.wenanzhe.com/img/zhifubao.jpg!/scale/35) 
- ![Test](https://cdn.wenanzhe.com/img/weixin.jpg!/scale/35) 
+ ![Test](https://cdn.wenanzhe.com/img/zhifubao.jpg!/scale/30) 
+ ![Test](https://cdn.wenanzhe.com/img/weixin.jpg!/scale/30)
+
+# 赞助合作商
+
+| 赞助合作商        | 推荐理由                                                                                             |
+|------------|--------------------------------------------------------------------------------------------------|
+| [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
 
 # 1.4.0版本更新内容
 

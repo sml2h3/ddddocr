@@ -35,6 +35,7 @@ class DdddOcr(object):
             print("欢迎使用ddddocr，本项目专注带动行业内卷，个人博客:wenanzhe.com")
             print("训练数据支持来源于:http://146.56.204.113:19199/preview")
             print("爬虫框架feapder可快速一键接入，快速开启爬虫之旅：https://github.com/Boris-code/feapder")
+            print("谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口：https://yescaptcha.com/i/NSwk7i")
         self.use_import_onnx = False
         self.__word = False
         self.__resize = []
@@ -1692,10 +1693,16 @@ class DdddOcr(object):
                 end_x = x
         return image.crop([starttx, startty, end_x, end_y]), starttx, startty
 
-    def slide_match(self, target_bytes: bytes = None, background_bytes: bytes = None, simple_target: bool=False):
+    def slide_match(self, target_bytes: bytes = None, background_bytes: bytes = None, simple_target: bool=False, flag: bool=False):
         if not simple_target:
-            target, target_x, target_y = self.get_target(target_bytes)
-            target = cv2.cvtColor(np.asarray(target), cv2.IMREAD_ANYCOLOR)
+            try:
+                target, target_x, target_y = self.get_target(target_bytes)
+                target = cv2.cvtColor(np.asarray(target), cv2.IMREAD_ANYCOLOR)
+            except SystemError as e:
+                # SystemError: tile cannot extend outside image
+                if flag:
+                    raise e
+                return self.slide_match(target_bytes=target_bytes, background_bytes=background_bytes, simple_target=True, flag=True)
         else:
             target = cv2.imdecode(np.frombuffer(target_bytes, np.uint8), cv2.IMREAD_ANYCOLOR)
             target_y = 0
