@@ -157,12 +157,12 @@ with open("test.jpg", 'rb') as f:
 res = ocr.classification(image)
 print(res)
 ``` 
-由于事实上确实在一些图片上老版本的模型识别效果比新模型好，特地这次更新把老模型也加入进去了，通过在初始化ddddocr的时候使用old参数即可快速切换老模型
+通过在初始化ddddocr的时候使用beta参数即可快速切换新模型
 
 ```python
 import ddddocr
 
-ocr = ddddocr.DdddOcr(old=True)
+ocr = ddddocr.DdddOcr(beta=True)
 
 with open("test.jpg", 'rb') as f:
     image = f.read()
