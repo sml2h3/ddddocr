@@ -257,7 +257,7 @@ cv2.imwrite("result.jpg", im)
 
 # 交流群 （加我好友拉你进群）
  
- ![四群链接](https://cdn.wenanzhe.com/img/1d5ec7445d745a4d6790df352e1abb5.png!/scale/50)
+ ![五群链接](https://cdn.wenanzhe.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220929101325.jpg!/scale/50)
  ![Test](https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50) 
 
 
