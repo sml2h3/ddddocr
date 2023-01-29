@@ -1,4 +1,4 @@
-![header.png](https://z3.ax1x.com/2021/07/02/R6Ih28.jpg)
+![header.png](https://cdn.wenanzhe.com/img/68747470733a2f2f7a332e617831782e636f6d2f323032312f30372f30322f5236496832382e6a7067.jfif)
 
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
