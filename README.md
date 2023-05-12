@@ -5,7 +5,7 @@
 # 官方免费在线ddddocr接口
 
 
-[注册即可免费在线调用]([https://github.com/sml2h3/dddd_trainer](https://01.gs/doc/9))
+[注册即可免费在线调用](https://01.gs/doc/9)
 
 
 # 当前版本为1.4.7
