@@ -1611,15 +1611,15 @@ class DdddOcr(object):
             assert isinstance(img, pathlib.PurePath)
             image = Image.open(img)
         if not self.use_import_onnx:
-            image = image.resize((int(image.size[0] * (64 / image.size[1])), 64), Image.ANTIALIAS).convert('L')
+            image = image.resize((int(image.size[0] * (64 / image.size[1])), 64), Image.LANCZOS).convert('L')
         else:
             if self.__resize[0] == -1:
                 if self.__word:
-                    image = image.resize((self.__resize[1], self.__resize[1]), Image.ANTIALIAS)
+                    image = image.resize((self.__resize[1], self.__resize[1]), Image.LANCZOS)
                 else:
-                    image = image.resize((int(image.size[0] * (self.__resize[1] / image.size[1])), self.__resize[1]), Image.ANTIALIAS)
+                    image = image.resize((int(image.size[0] * (self.__resize[1] / image.size[1])), self.__resize[1]), Image.LANCZOS)
             else:
-                image = image.resize((self.__resize[0], self.__resize[1]), Image.ANTIALIAS)
+                image = image.resize((self.__resize[0], self.__resize[1]), Image.LANCZOS)
             if self.__channel == 1:
                 image = image.convert('L')
             else:
