@@ -12,6 +12,8 @@ from PIL import Image, ImageChops
 import numpy as np
 import cv2
 
+Image.ANTIALIAS = Image.ANTIALIAS if hasattr(Image, 'ANTIALIAS') else Image.LANCZOS
+
 
 def base64_to_image(img_base64):
     img_data = base64.b64decode(img_base64)
