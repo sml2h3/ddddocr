@@ -5,7 +5,7 @@
 
 
 
-# 当前版本为1.4.7
+# 当前版本为1.4.8
 
 ## 1.4.3更新内容
 
@@ -231,7 +231,7 @@ cv2.imwrite("result.jpg", im)
 
 ## 环境支持
 
-`python <= 3.9`
+`python <= 3.10`
 
 `Windows/Linux/Macos..`
 
