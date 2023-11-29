@@ -1,11 +1,8 @@
-![header.png](https://z3.ax1x.com/2021/07/02/R6Ih28.jpg)
+![header.png](https://cdn.wenanzhe.com/img/68747470733a2f2f7a332e617831782e636f6d2f323032312f30372f30322f5236496832382e6a7067.jfif)
 
 # 带带弟弟OCR通用验证码识别SDK免费开源版
 
-
-
-
-# 当前版本为1.4.8
+# 当前版本为1.4.9
 
 ## 1.4.3更新内容
 
@@ -157,12 +154,12 @@ with open("test.jpg", 'rb') as f:
 res = ocr.classification(image)
 print(res)
 ``` 
-由于事实上确实在一些图片上老版本的模型识别效果比新模型好，特地这次更新把老模型也加入进去了，通过在初始化ddddocr的时候使用old参数即可快速切换老模型
+通过在初始化ddddocr的时候使用beta参数即可快速切换新模型
 
 ```python
 import ddddocr
 
-ocr = ddddocr.DdddOcr(old=True)
+ocr = ddddocr.DdddOcr(beta=True)
 
 with open("test.jpg", 'rb') as f:
     image = f.read()
@@ -231,7 +228,7 @@ cv2.imwrite("result.jpg", im)
 
 ## 环境支持
 
-`python <= 3.10`
+`python <= 3.9`
 
 `Windows/Linux/Macos..`
 
@@ -255,10 +252,15 @@ cv2.imwrite("result.jpg", im)
 
 [crawlab](https://github.com/crawlab-team/crawlab)
 
-# 交流群 （加我好友拉你进群）
+# 交流群 （个人微信太懒了不一定会通过）
  
- ![四群链接](https://cdn.wenanzhe.com/img/1d5ec7445d745a4d6790df352e1abb5.png!/scale/50)
+ ![六群链接](https://cdn.wenanzhe.com/img/group.jpg!/scale/50)
  ![Test](https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50) 
 
+# 主要贡献者
 
-   
+<span style="margin: 0 5px;" ><a href="https://github.com/kerlomz" ><img src="https://cdn.wenanzhe.com/img/16838877.jpg!/scale/50" /></a></span>
+
+## Star 历史
+
+[![Star History Chart](https://api.star-history.com/svg?repos=sml2h3/ddddocr&type=Date)](https://star-history.com/#sml2h3/ddddocr&Date)

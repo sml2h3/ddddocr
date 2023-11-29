@@ -1,4 +1,4 @@
 onnxruntime
-Pillow=9.5.0
+Pillow==9.5.0
 numpy
 opencv-python

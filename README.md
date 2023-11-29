@@ -252,10 +252,14 @@ cv2.imwrite("result.jpg", im)
 
 [crawlab](https://github.com/crawlab-team/crawlab)
 
-# 交流群 （加我好友拉你进群）
+# 交流群 （个人微信太懒了不一定会通过）
  
- ![五群链接](https://cdn.wenanzhe.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220929101325.jpg!/scale/50)
+ ![六群链接](https://cdn.wenanzhe.com/img/group.jpg!/scale/50)
  ![Test](https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50) 
+
+# 主要贡献者
+
+<span style="margin: 0 5px;" ><a href="https://github.com/kerlomz" ><img src="https://cdn.wenanzhe.com/img/16838877.jpg!/scale/50" /></a></span>
 
 ## Star 历史
 
