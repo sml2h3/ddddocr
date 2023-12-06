@@ -36,6 +36,8 @@ class DdddOcr(object):
             print("训练数据支持来源于:http://146.56.204.113:19199/preview")
             print("爬虫框架feapder可快速一键接入，快速开启爬虫之旅：https://github.com/Boris-code/feapder")
             print("谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口：https://yescaptcha.com/i/NSwk7i")
+        if not hasattr(Image, 'ANTIALIAS'):
+            setattr(Image, 'ANTIALIAS', Image.LANCZOS)
         self.use_import_onnx = False
         self.__word = False
         self.__resize = []
