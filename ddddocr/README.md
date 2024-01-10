@@ -1,8 +1,14 @@
 ![header.png](https://cdn.wenanzhe.com/img/68747470733a2f2f7a332e617831782e636f6d2f323032312f30372f30322f5236496832382e6a7067.jfif)
 
-# 带带弟弟OCR通用验证码识别SDK免费开源版
+# 带带弟弟OCR通用验证码离线本地识别SDK免费开源版
 
-# 当前版本为1.4.10
+# 当前版本为1.4.11
+
+## 下一版本更新计划，重新训练 中英数识别模型，即将支持自定义划定输出范围，如纯英文/纯数字/部分英文+部分数字/特殊符号/中文/各种混合等等，如果有已经标注好的数据也可以发送邮件（sml2h3@gmail.com）与我分享
+
+## 1.4.11  更新时间2024.01.10
+
+新增对透明黑色png格式图片得识别支持: `classification` 方法 新增 `png_fix` 参数，默认为False
 
 ## 1.4.3更新内容
 
@@ -36,6 +42,7 @@ print(res)
 |                                                            | 赞助合作商 | 推荐理由                                                                                             |
 |------------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------|
 | ![YesCaptcha](https://cdn.wenanzhe.com/img/yescaptcha.png) | [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
+| ![Malenia](https://cdn.wenanzhe.com/img/malenia.png)    | [Malenia](https://malenia.iinti.cn/malenia-doc/) | Malenia企业级代理IP网关平台/代理IP分销软件 |
 
 # 1.4.0版本更新内容
 
