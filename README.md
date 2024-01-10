@@ -42,7 +42,7 @@ print(res)
 |                                                            | 赞助合作商 | 推荐理由                                                                                             |
 |------------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------|
 | ![YesCaptcha](https://cdn.wenanzhe.com/img/yescaptcha.png) | [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
-| ![Malenia](https://cdn.wenanzhe.com/img/malenia.png)    | [Malenia](https://malenia.iinti.cn/malenia-doc/) | 企业级代理IP网关平台/代理IP分销软件 |
+| ![Malenia](https://cdn.wenanzhe.com/img/malenia.png!/scale/50)    | [Malenia](https://malenia.iinti.cn/malenia-doc/) | Malenia企业级代理IP网关平台/代理IP分销软件 |
 
 # 1.4.0版本更新内容
 
