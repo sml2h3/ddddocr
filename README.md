@@ -235,7 +235,7 @@ cv2.imwrite("result.jpg", im)
 
 ## 环境支持
 
-`python <= 3.9`
+`python <= 3.10`
 
 `Windows/Linux/Macos..`
 
