@@ -2682,7 +2682,8 @@ class DdddOcr(object):
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
         h, w = target.shape[:2]
         bottom_right = (max_loc[0] + w, max_loc[1] + h)
-        return {"target_y": target_y,
+        return {"target_x": target_x,
+                "target_y": target_y,
                 "target": [int(max_loc[0]), int(max_loc[1]), int(bottom_right[0]), int(bottom_right[1])]}
 
     def slide_comparison(self, target_bytes: bytes = None, background_bytes: bytes = None):
