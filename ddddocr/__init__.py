@@ -2553,7 +2553,7 @@ class DdddOcr(object):
             return []
         return result
 
-    def set_ranges(self, charset_range: int | str):
+    def set_ranges(self, charset_range):
         if isinstance(charset_range, int):
             if charset_range == 0:
                 # 数字
