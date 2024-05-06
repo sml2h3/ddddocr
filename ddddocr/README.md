@@ -74,11 +74,11 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 
 | 系统               | CPU | GPU | 最大支持py版本 | 备注                                                                 |
 |------------------|-----|------|----------|--------------------------------------------------------------------|
-| Windows 64位      | √   | √ | 3.11     | 部分版本windows需要安装<a href="https://www.ghxi.com/yxkhj.html">vc运行库</a> |
+| Windows 64位      | √   | √ | 3.12     | 部分版本windows需要安装<a href="https://www.ghxi.com/yxkhj.html">vc运行库</a> |
 | Windows 32位      | ×   | × | -        |                                                                    |
-| Linux 64 / ARM64 | √   | √ | 3.11     |                                                                    |
+| Linux 64 / ARM64 | √   | √ | 3.12     |                                                                    |
 | Linux 32         | ×   | × | -        |                                                                    |
-| Macos  X64       | √   | √ | 3.11     | M1/M2/M3...芯片参考<a href="https://github.com/sml2h3/ddddocr/issues/67">#67</a>         |
+| Macos  X64       | √   | √ | 3.12     | M1/M2/M3...芯片参考<a href="https://github.com/sml2h3/ddddocr/issues/67">#67</a>         |
 
 ###### **安装步骤**
 
