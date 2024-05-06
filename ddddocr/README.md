@@ -40,6 +40,7 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
  
 ## 目录
 
+- [赞助合作商](#赞助合作商)
 - [上手指南](#上手指南)
   - [环境支持](#环境支持)
   - [安装步骤](#安装步骤)
@@ -53,7 +54,17 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
   - [自定义OCR训练模型导入](#自定义OCR训练模型导入)
 - [版本控制](#版本控制)
 - [作者](#作者)
-- [鸣谢](#鸣谢)
+- [捐赠](#捐赠)
+
+
+
+### 赞助合作商
+
+|                                                            | 赞助合作商 | 推荐理由                                                                                             |
+|------------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------|
+| ![YesCaptcha](https://cdn.wenanzhe.com/img/yescaptcha.png) | [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
+| ![Malenia](https://cdn.wenanzhe.com/img/malenia.png!/scale/50)    | [Malenia](https://malenia.iinti.cn/malenia-doc/) | Malenia企业级代理IP网关平台/代理IP分销软件 |
+
 
 ### 上手指南
 
@@ -365,6 +376,11 @@ sml2h3@gamil.com
 ### 版权说明
 
 该项目签署了MIT 授权许可，详情请参阅 [LICENSE](https://github.com/sml2h3/ddddocr/blob/master/LICENSE)
+
+### 捐赠 （如果项目有帮助到您，可以选择捐赠一些费用用于ddddocr的后续版本维护，本项目长期维护）
+
+<img src="https://cdn.wenanzhe.com/img/zhifubao.jpg" alt="captcha" width="150">
+<img src="https://cdn.wenanzhe.com/img/weixin.jpg" alt="captcha" width="150">
 
 
 <!-- links -->
