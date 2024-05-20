@@ -398,6 +398,8 @@ sml2h3@gamil.com
 [license-url]: https://github.com/sml2h3/ddddocr/blob/master/LICENSE
 
 
+### Star 历史
 
+[![Star History Chart](https://api.star-history.com/svg?repos=sml2h3/ddddocr&type=Date)](https://star-history.com/#sml2h3/ddddocr&Date)
 
 
