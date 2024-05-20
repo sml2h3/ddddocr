@@ -63,6 +63,7 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 |                                                            | 赞助合作商 | 推荐理由                                                                                             |
 |------------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------|
 | ![YesCaptcha](https://cdn.wenanzhe.com/img/yescaptcha.png) | [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
+| ![超级鹰](https://cdn.wenanzhe.com/img/logo.gif) | [超级鹰](https://www.chaojiying.com/) | 全球领先的智能图片分类及识别商家，安全、准确、高效、稳定、开放，强大的技术及校验团队，支持大并发。7*24h作业进度管理 |
 | ![Malenia](https://cdn.wenanzhe.com/img/malenia.png!/scale/50)    | [Malenia](https://malenia.iinti.cn/malenia-doc/) | Malenia企业级代理IP网关平台/代理IP分销软件 |
 
 
