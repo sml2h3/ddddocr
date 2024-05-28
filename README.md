@@ -53,8 +53,10 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
   - [OCR概率输出](#ⅳ-ocr概率输出)
   - [自定义OCR训练模型导入](#ⅴ-自定义ocr训练模型导入)
 - [版本控制](#版本控制)
+- [相关推荐文章or项目](#相关推荐文章or项目)
 - [作者](#作者)
 - [捐赠](#捐赠)
+- [Star历史](#Star历史)
 
 
 
@@ -365,6 +367,20 @@ print(res)
 ### 版本控制
 
 该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
+
+### 相关推荐文章or项目
+
+[带带弟弟OCR，纯VBA本地获取网络验证码整体解决方案](https://club.excelhome.net/thread-1666823-1-1.html)
+
+[ddddocr rust 版本](https://github.com/86maid/ddddocr)
+
+[captcha-killer的修改版](https://github.com/f0ng/captcha-killer-modified)
+
+[通过ddddocr训练字母数字验证码模型并识别部署调用](https://www.bilibili.com/video/BV1ez421C7dB)
+
+...
+
+欢迎更多优秀案例或教程等进行投稿，可直接新建issue标题以【投稿】开头，附上公开教程站点链接，我会选择根据文章内容选择相对不重复或者有重点内容等进行readme展示，感谢各位朋友~
 
 ### 作者
 
