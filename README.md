@@ -2,7 +2,7 @@
 
 # DdddOcr 带带弟弟OCR通用验证码离线本地识别SDK免费开源版
 
-DdddOcr，其由作者与kerlomz共同合作完成，通过大批量生成随机数据后进行深度网络训练，本身并非针对任何一家验证码厂商而制作，本库使用效果完全靠玄学，可能可以识别，可能不能识别。
+DdddOcr，其由 [本作者](https://github.com/sml2h3) 与 [kerlomz](https://github.com/kerlomz) 共同合作完成，通过大批量生成随机数据后进行深度网络训练，本身并非针对任何一家验证码厂商而制作，本库使用效果完全靠玄学，可能可以识别，可能不能识别。
 
 DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，希望给每一位测试者带来舒适的体验
 
@@ -47,14 +47,16 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 - [文件目录说明](#文件目录说明)
 - [项目底层支持](#项目底层支持)
 - [使用文档](#使用文档)
-  - [基础ocr识别能力](#基础ocr识别能力)
-  - [目标检测能力](#目标检测能力)
-  - [滑块检测](#滑块检测)
-  - [OCR概率输出](#OCR概率输出)
-  - [自定义OCR训练模型导入](#自定义OCR训练模型导入)
+  - [基础ocr识别能力](#i-基础ocr识别能力)
+  - [目标检测能力](#ii-目标检测能力)
+  - [滑块检测](#ⅲ-滑块检测)
+  - [OCR概率输出](#ⅳ-ocr概率输出)
+  - [自定义OCR训练模型导入](#ⅴ-自定义ocr训练模型导入)
 - [版本控制](#版本控制)
+- [相关推荐文章or项目](#相关推荐文章or项目)
 - [作者](#作者)
 - [捐赠](#捐赠)
+- [Star历史](#Star历史)
 
 
 
@@ -65,6 +67,7 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 | ![YesCaptcha](https://cdn.wenanzhe.com/img/yescaptcha.png) | [YesCaptcha](https://yescaptcha.com/i/NSwk7i) | 谷歌reCaptcha验证码 / hCaptcha验证码 / funCaptcha验证码商业级识别接口 [点我](https://yescaptcha.com/i/NSwk7i) 直达VIP4 |
 | ![超级鹰](https://cdn.wenanzhe.com/img/logo.gif) | [超级鹰](https://www.chaojiying.com/) | 全球领先的智能图片分类及识别商家，安全、准确、高效、稳定、开放，强大的技术及校验团队，支持大并发。7*24h作业进度管理 |
 | ![Malenia](https://cdn.wenanzhe.com/img/malenia.png!/scale/50)    | [Malenia](https://malenia.iinti.cn/malenia-doc/) | Malenia企业级代理IP网关平台/代理IP分销软件 |
+| 雨云VPS    | [注册首月5折](https://www.rainyun.com/ddddocr_) | 浙江节点低价大带宽，100M每月30元 |
 
 
 ### 上手指南
@@ -365,6 +368,20 @@ print(res)
 ### 版本控制
 
 该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
+
+### 相关推荐文章or项目
+
+[带带弟弟OCR，纯VBA本地获取网络验证码整体解决方案](https://club.excelhome.net/thread-1666823-1-1.html)
+
+[ddddocr rust 版本](https://github.com/86maid/ddddocr)
+
+[captcha-killer的修改版](https://github.com/f0ng/captcha-killer-modified)
+
+[通过ddddocr训练字母数字验证码模型并识别部署调用](https://www.bilibili.com/video/BV1ez421C7dB)
+
+...
+
+欢迎更多优秀案例或教程等进行投稿，可直接新建issue标题以【投稿】开头，附上公开教程站点链接，我会选择根据文章内容选择相对不重复或者有重点内容等进行readme展示，感谢各位朋友~
 
 ### 作者
 
