@@ -13,6 +13,8 @@ import numpy as np
 import cv2
 
 
+onnxruntime.set_default_logger_severity(3)
+
 def base64_to_image(img_base64):
     img_data = base64.b64decode(img_base64)
     return Image.open(io.BytesIO(img_data))
