@@ -8,6 +8,8 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 
 项目地址： [点我传送](https://github.com/sml2h3/ddddocr) 
 
+### 自营GPT聚合平台： [点我传送](https://juxiangyun.com/)
+
 <!-- PROJECT SHIELDS -->
 
 [![Contributors][contributors-shield]][contributors-url]
