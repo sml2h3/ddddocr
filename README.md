@@ -34,6 +34,8 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
     ·
     <a href="https://github.com/sml2h3/ddddocr/issues">报告Bug</a>
     ·
+    <a href="https://github.com/sml2h3/ddddocr-fastapi">一键API服务</a>
+    ·
     <a href="https://github.com/sml2h3/ddddocr/issues">提出新特性</a>
   </p>
 
@@ -122,6 +124,10 @@ ddddocr
 └── setup.py
 
 ```
+
+**iii. 一键启动**
+<a href="https://github.com/sml2h3/ddddocr-fastapi">一键API服务</a>
+
 
 ### 项目底层支持 
 
