@@ -8,8 +8,6 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 
 项目地址： [点我传送](https://github.com/sml2h3/ddddocr) 
 
-### 自营GPT聚合平台： [点我传送](https://juxiangyun.com/)
-
 <!-- PROJECT SHIELDS -->
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -22,19 +20,17 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 <br />
 
 <p align="center">
-  <a href="https://github.com/shaojintian/Best_README_template/">
+  <a href="https://github.com/sml2h3/ddddocr/">
     <img src="https://cdn.wenanzhe.com/img/logo.png!/crop/700x500a400a500" alt="Logo">
   </a>
   <p align="center">
     一个容易使用的通用验证码识别python库
     <br />
-    <a href="https://github.com/shaojintian/Best_README_template"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/sml2h3/ddddocr/"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
     ·
     <a href="https://github.com/sml2h3/ddddocr/issues">报告Bug</a>
-    ·
-    <a href="https://github.com/sml2h3/ddddocr-fastapi">一键API服务</a>
     ·
     <a href="https://github.com/sml2h3/ddddocr/issues">提出新特性</a>
   </p>
@@ -124,10 +120,6 @@ ddddocr
 └── setup.py
 
 ```
-
-**iii. 一键启动**
-<a href="https://github.com/sml2h3/ddddocr-fastapi">一键API服务</a>
-
 
 ### 项目底层支持 
 

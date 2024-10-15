@@ -2648,6 +2648,7 @@ class DdddOcr(object):
         if self.__word:
             for item in ort_outs[1]:
                 result.append(self.__charset[item])
+            return ''.join(result)
         else:
             if not self.use_import_onnx:
                 # 概率输出仅限于使用官方模型
