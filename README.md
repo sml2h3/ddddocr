@@ -373,6 +373,8 @@ print(res)
 
 [带带弟弟OCR，纯VBA本地获取网络验证码整体解决方案](https://club.excelhome.net/thread-1666823-1-1.html)
 
+[ddddocr nodejs 版本](https://github.com/rhy3h/ddddocr-node)
+
 [ddddocr rust 版本](https://github.com/86maid/ddddocr)
 
 [captcha-killer的修改版](https://github.com/f0ng/captcha-killer-modified)
