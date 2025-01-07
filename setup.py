@@ -32,7 +32,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=['numpy', 'onnxruntime', 'Pillow', 'opencv-python-headless'],
+    install_requires=['numpy<2.0.0', 'onnxruntime', 'Pillow', 'opencv-python-headless==3.4.16.59'],
     python_requires='<3.13',
     include_package_data=True,
     install_package_data=True,
