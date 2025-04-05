@@ -37,7 +37,7 @@ DdddOcr、最简依赖的理念，尽量减少用户的配置和使用成本，�
 
 </p>
 
- 
+
 ## 目录
 
 - [赞助合作商](#赞助合作商)
@@ -112,6 +112,7 @@ ddddocr
 │  │── __init__.py            主代码库文件
 │  │── common.onnx            新ocr模型
 │  │── common_det.onnx        目标检测模型
+│  │── common_rot.onnx        旋转图片模型
 │  │── common_old.onnx        老ocr模型
 │  │── logo.png
 │  │── README.md
@@ -258,7 +259,7 @@ cv2.imwrite("result.jpg", im)
     res = det.slide_match(target_bytes, background_bytes)
     
     print(res)
-  ```
+```
   由于滑块图可能存在透明边框的问题，导致计算结果不一定准确，需要自行估算滑块图透明边框的宽度用于修正得出的bbox
 
   *提示：如果滑块无过多背景部分，则可以添加simple_target参数， 通常为jpg或者bmp格式的图片*
@@ -275,7 +276,7 @@ cv2.imwrite("result.jpg", im)
     res = slide.slide_match(target_bytes, background_bytes, simple_target=True)
     
     print(res)
-  ```
+```
 
 **a.算法2**
 
@@ -303,7 +304,7 @@ cv2.imwrite("result.jpg", im)
     res = slide.slide_comparison(target_bytes, background_bytes)
 
     print(res)
-  ```
+```
 
 ##### Ⅳ. OCR概率输出
 
@@ -365,6 +366,40 @@ print(res)
 
 ```
 
+##### Ⅵ. 旋转图片
+
+返回图片需要旋转多少度才是正的图片， 可以保存调试图片
+
+```python
+import ddddocr
+import time
+
+rot = ddddocr.DdddOcr(rot=True)
+with open("test.jpg", 'rb') as f:
+    image = f.read()
+
+runs = 100
+start = time.time()
+for _ in range(runs):
+    degree = rot.rotate(image, save_rot=False)
+end = time.time()
+total_time = end - start
+qps = runs / total_time
+print(f"ONNX Runtime (CPU) - QPS: {qps:.2f}, Avg Latency: {total_time / runs * 1000:.2f} ms")
+
+# ONNX Runtime (CPU) - QPS: 34.34, Avg Latency: 29.12 ms # 包含图片预处理和后处理(保存)
+# ONNX Runtime (CPU) - QPS: 38.39, Avg Latency: 26.05 ms # 包含图片预处理、不含后处理（保存）
+```
+
+**参考例图**
+
+包括且不限于以下图片
+
+![原图](images/test.jpg)
+
+![旋转后](images/debug.jpg)
+
+
 ### 版本控制
 
 该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
@@ -388,7 +423,7 @@ print(res)
 ### 作者
 
 sml2h3@gamil.com
- 
+
 <img src="https://cdn.wenanzhe.com/img/mmqrcode1640418911274.png!/scale/50" alt="wechat" width="150">
 
  *好友数过多不一定通过，有问题可以在issue进行交流*
@@ -420,5 +455,4 @@ sml2h3@gamil.com
 ### Star 历史
 
 [![Star History Chart](https://api.star-history.com/svg?repos=sml2h3/ddddocr&type=Date)](https://star-history.com/#sml2h3/ddddocr&Date)
-
 

@@ -11,9 +11,10 @@ import onnxruntime
 from PIL import Image, ImageChops
 import numpy as np
 import cv2
-
+import math
 
 onnxruntime.set_default_logger_severity(3)
+
 
 def base64_to_image(img_base64):
     img_data = base64.b64decode(img_base64)
@@ -39,7 +40,7 @@ def png_rgba_black_preprocess(img: Image):
 
 
 class DdddOcr(object):
-    def __init__(self, ocr: bool = True, det: bool = False, old: bool = False, beta: bool = False,
+    def __init__(self, ocr: bool = True, det: bool = False, rot: bool = False, old: bool = False, beta: bool = False,
                  use_gpu: bool = False,
                  device_id: int = 0, show_ad=True, import_onnx_path: str = "", charsets_path: str = ""):
         if show_ad:
@@ -54,11 +55,12 @@ class DdddOcr(object):
         self.__word = False
         self.__resize = []
         self.__charset_range = []
-        self.__valid_charset_range_index = [] # 指定字符对应的有效索引
+        self.__valid_charset_range_index = []  # 指定字符对应的有效索引
         self.__channel = 1
         if import_onnx_path != "":
             det = False
             ocr = False
+            rot = False
             self.__graph_path = import_onnx_path
             with open(charsets_path, 'r', encoding="utf-8") as f:
                 info = json.loads(f.read())
@@ -67,9 +69,14 @@ class DdddOcr(object):
             self.__resize = info['image']
             self.__channel = info['channel']
             self.use_import_onnx = True
-
+        if rot:
+            ocr = False
+            det = False
+            self.__graph_path = os.path.join(os.path.dirname(__file__), 'common_rot.onnx')
+            self.__charset = []
         if det:
             ocr = False
+            rot = False
             self.__graph_path = os.path.join(os.path.dirname(__file__), 'common_det.onnx')
             self.__charset = []
         if ocr:
@@ -2401,6 +2408,7 @@ class DdddOcr(object):
                                   "窭", "铌",
                                   "友", "唉", "怫", "荘"]
         self.det = det
+        self.rot = rot
         if use_gpu:
             self.__providers = [
                 ('CUDAExecutionProvider', {
@@ -2415,7 +2423,7 @@ class DdddOcr(object):
             self.__providers = [
                 'CPUExecutionProvider',
             ]
-        if ocr or det or self.use_import_onnx:
+        if rot or ocr or det or self.use_import_onnx:
             self.__ort_session = onnxruntime.InferenceSession(self.__graph_path, providers=self.__providers)
 
     def preproc(self, img, input_size, swap=(2, 0, 1)):
@@ -2605,7 +2613,6 @@ class DdddOcr(object):
                     pass
         self.__valid_charset_range_index = valid_charset_range_index
 
-
     def classification(self, img, png_fix: bool = False, probability=False):
         if self.det:
             raise TypeError("当前识别类型为目标检测")
@@ -2681,7 +2688,7 @@ class DdddOcr(object):
                         valid_charset_range_index = self.__valid_charset_range_index
                         probability_result = []
                         for item in ort_outs_probability:
-                            probability_result.append([item[i] for i in valid_charset_range_index ])
+                            probability_result.append([item[i] for i in valid_charset_range_index])
                         result['probability'] = probability_result
                     return result
                 else:
@@ -2723,11 +2730,66 @@ class DdddOcr(object):
 
     def detection(self, img_bytes: bytes = None, img_base64: str = None):
         if not self.det:
-            raise TypeError("当前识别类型为文字识别")
+            raise TypeError("当前识别类型为文字识别或图片旋转")
         if not img_bytes:
             img_bytes = base64.b64decode(img_base64)
         result = self.get_bbox(img_bytes)
         return result
+
+    def rotate(self, img_bytes: bytes = None, img_base64: str = None, save_rot: bool = False):
+        """
+        返回图片应该旋转的角度
+        :param img_bytes: open(test.jpg).read()
+        :param img_base64:
+        :param save_rot: 为True则保存旋转以后的图片到项目路径，默认False
+        :return:
+        """
+        # 由于弟弟库维护人员过多，rotate没有调用和修改其他方法（如preproc）
+        # 如果我要调用preproc，那么就得修改preproc
+        # 可能导致其他兼容问题，所以全部写在rotate
+
+        if not self.rot:
+            raise TypeError("当前识别类型为文字识别或目标检测")
+        if not img_bytes:
+            img_bytes = base64.b64decode(img_base64)
+        image = cv2.imdecode(np.frombuffer(img_bytes, np.uint16), cv2.IMREAD_COLOR)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        src_size, src_w = image.shape[:2]
+        assert src_size == src_w
+        # 中心裁剪
+        output_size = int(src_size / math.sqrt(2.0))
+        img = image[(image.shape[0] - output_size) // 2: (image.shape[0] + output_size) // 2,
+                  (image.shape[1] - output_size) // 2: (image.shape[1] + output_size) // 2]
+        # 归一化
+        img = np.array(img).astype(np.float32) / 255.0
+
+        # 缩放
+        input_size = (224,224)
+        img = cv2.resize(img, input_size, interpolation=cv2.INTER_LANCZOS4)
+
+        # 标准化
+        mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
+        std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
+        img = (img - mean) / std
+
+        # 转换为C, H, W
+        im = img.transpose((2, 0, 1))
+
+        ort_inputs = {self.__ort_session.get_inputs()[0].name: im[None, :, :, :]}
+        cls_num = self.__ort_session.get_outputs()[0].shape[1]
+        output = self.__ort_session.run(None, ort_inputs)
+        angle = output[0].argmax(1).item() / cls_num
+        degree = angle * 360
+        if save_rot:
+            center = (src_size // 2, src_w // 2)
+            M = cv2.getRotationMatrix2D(center, -degree, 1.0)
+            rotated = cv2.warpAffine(
+                image, M, (src_w, src_size), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(255, 255, 255)
+            )
+            # 保存旋转后的图像
+            rotated = cv2.cvtColor(rotated, cv2.COLOR_RGB2BGR)
+            cv2.imwrite("debug.jpg", rotated)
+        return degree
 
     def get_target(self, img_bytes: bytes = None):
         image = Image.open(io.BytesIO(img_bytes))
