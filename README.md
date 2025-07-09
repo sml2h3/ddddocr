@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/sml2h3-ddddocr-badge.png)](https://mseep.ai/app/sml2h3-ddddocr)
+
 
 
 # DdddOcr 带带弟弟OCR通用验证码离线本地识别SDK免费开源版
