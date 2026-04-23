@@ -615,10 +615,9 @@ async def slide_match_recognition(
     start_time = time.time()
     try:
         result = ocr_instance.slide_match(
-            target_bytes=target_data,
-            background_bytes=background_data,
+            target_data,
+            background_data,
             simple_target=request.simple_target,
-            flag=request.flag
         )
     except (DdddOcrInputError, InvalidImageError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
