@@ -370,8 +370,8 @@ async def ocr_recognition(
             result = ocr_instance.classification(
                 image,
                 probability=True,
-                colors=request.colors,
-                custom_color_ranges=request.custom_color_ranges
+                color_filter_colors=request.colors,
+                color_filter_custom_ranges=request.custom_color_ranges
             )
             response_data = {
                 "result": result,
@@ -380,8 +380,8 @@ async def ocr_recognition(
         else:
             result = ocr_instance.classification(
                 image,
-                colors=request.colors,
-                custom_color_ranges=request.custom_color_ranges
+                color_filter_colors=request.colors,
+                color_filter_custom_ranges=request.custom_color_ranges
             )
             response_data = {
                 "result": result,
@@ -462,8 +462,8 @@ async def ocr_recognition_file(
             result = ocr_instance.classification(
                 image,
                 probability=True,
-                colors=colors_list,
-                custom_color_ranges=custom_ranges
+                color_filter_colors=colors_list,
+                color_filter_custom_ranges=custom_ranges
             )
             response_data = {
                 "result": result,
@@ -472,8 +472,8 @@ async def ocr_recognition_file(
         else:
             result = ocr_instance.classification(
                 image,
-                colors=colors_list,
-                custom_color_ranges=custom_ranges
+                color_filter_colors=colors_list,
+                color_filter_custom_ranges=custom_ranges
             )
             response_data = {
                 "result": result,
